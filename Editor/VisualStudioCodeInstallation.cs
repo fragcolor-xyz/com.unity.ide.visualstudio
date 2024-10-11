@@ -155,7 +155,7 @@ namespace Microsoft.Unity.VisualStudio.Editor
 			var localAppPath = IOPath.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Programs");
 			var programFiles = IOPath.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles));
 
-			foreach (var basePath in new[] {localAppPath, programFiles})
+			foreach (var basePath in new[] { localAppPath, programFiles })
 			{
 				candidates.Add(IOPath.Combine(basePath, "Microsoft VS Code", "Code.exe"));
 				candidates.Add(IOPath.Combine(basePath, "Microsoft VS Code Insiders", "Code - Insiders.exe"));
@@ -515,7 +515,7 @@ namespace Microsoft.Unity.VisualStudio.Editor
 
 			ProcessRunner.Start(string.IsNullOrEmpty(path) ?
 				ProcessStartInfoFor(application, $"\"{directory}\"") :
-				ProcessStartInfoFor(application, $"\"{directory}\" -g \"{path}\":{line}:{column}"));
+				ProcessStartInfoFor(application, $"-r -g \"{path}\":{line}:{column}"));
 
 			return true;
 		}
